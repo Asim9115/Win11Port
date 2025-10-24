@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { SKILLS } from "@/lib/data.tsx";
-import { Folder } from "lucide-react";
+import Image from "next/image";
 import type { SkillCategory } from "@/lib/types";
 import { useAppView } from "@/hooks/use-app-history";
 
@@ -15,7 +15,7 @@ function FolderView({ onOpen }: { onOpen: (category: SkillCategory) => void }) {
                     onDoubleClick={() => onOpen(category)}
                     className="flex flex-col items-center gap-2 p-2 rounded-md hover:bg-accent cursor-pointer text-center"
                 >
-                    <Folder className="h-12 w-12 text-primary" />
+                    <Image src="/icons/folder.svg" alt="Folder" width={48} height={48} className="text-primary" />
                     <span className="text-xs break-words w-full">{category.title}</span>
                 </div>
             ))}

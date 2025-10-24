@@ -1,8 +1,6 @@
-"use client";
-
 import type { DesktopItem } from "@/lib/types";
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
-import { DESKTOP_ITEMS } from "@/lib/data";
+import { DESKTOP_ITEMS } from "@/lib/data.tsx";
 
 const getInitialIconPositions = () => {
     if (typeof window !== 'undefined' && window.innerWidth < 640) {

@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "wallpaper",
-      "description": "Abstract blue and purple waves, mimicking a modern desktop wallpaper.",
-      "imageUrl": "https://images.unsplash.com/photo-1663970206537-2d24183b59c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhYnN0cmFjdCUyMHdhbGxwYXBlcnxlbnwwfHx8fDE3NjEyNDUzNjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract wallpaper"
+      "description": "A dark abstract wallpaper with flowing lines and a tech aesthetic.",
+      "imageUrl": "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkYXJrJTIwYWJzdHJhY3QlMjBjb2Rpbmd8ZW58MHx8fHwxNzYxMzAxMTI0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dark abstract"
     }
   ]
 }

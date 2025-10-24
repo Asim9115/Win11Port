@@ -3,10 +3,7 @@
 import type { DesktopItem } from "@/lib/types";
 import { useWindows } from "@/hooks/use-windows";
 import { useDoubleTap } from 'use-double-tap';
-
-const MyPCIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-monitor"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
-)
+import Image from "next/image";
 
 interface DesktopIconProps {
   item: DesktopItem;
@@ -27,9 +24,6 @@ export default function DesktopIcon({ item, onMouseDown, onTouchStart }: Desktop
   
   const bind = useDoubleTap(handleDoubleClick);
 
-
-  const IconComponent = item.icon === 'mypc' ? MyPCIcon : item.icon;
-
   return (
     <div
       {...bind}
@@ -42,7 +36,7 @@ export default function DesktopIcon({ item, onMouseDown, onTouchStart }: Desktop
       onTouchStart={onTouchStart}
       onDoubleClick={handleDoubleClick}
     >
-      <IconComponent className="h-8 w-8 text-white drop-shadow-lg mb-1" />
+      <Image src={item.icon} alt={item.name} width={32} height={32} className="drop-shadow-lg mb-1" />
       <span className="text-white text-xs font-medium shadow-black [text-shadow:0_1px_2px_var(--tw-shadow-color)]">
         {item.name}
       </span>

@@ -1,5 +1,3 @@
-"use client";
-
 import type { Window } from "@/lib/types";
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
 import { useToast } from "./use-toast";

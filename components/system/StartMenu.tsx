@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -15,10 +14,11 @@ import {
 import { PERSONAL_INFO, START_MENU_ITEMS } from "@/lib/data.tsx";
 import { useWindows } from "@/hooks/use-windows";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Power, ArrowRight, FileText, Briefcase, Moon, RefreshCw } from "lucide-react";
+import Image from "next/image";
 import type { NavItem } from "@/lib/types";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Moon, RefreshCw, Power } from "lucide-react";
 
 const iconColors = [
     'bg-sky-500', 'bg-green-500', 'bg-amber-500', 'bg-violet-500', 
@@ -40,13 +40,13 @@ export default function StartMenu({ children }: { children: React.ReactNode }) {
     const resumeItem = {
         name: 'CurrentResume',
         description: 'Sunday at 10:14 AM',
-        icon: FileText,
+        icon: '/icons/file-text.svg',
         action: () => window.open(PERSONAL_INFO.resume, '_blank', 'noopener,noreferrer')
     }
     const projectsItem = {
         name: 'Recent Projects',
         description: 'August 25',
-        icon: Briefcase,
+        icon: '/icons/briefcase.svg',
         action: () => openWindow('Projects')
     }
 
@@ -58,12 +58,11 @@ export default function StartMenu({ children }: { children: React.ReactNode }) {
 
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="text-lg font-semibold">Pinned</h3>
-                    <Button variant="ghost" size="sm">All Apps <ArrowRight className="h-4 w-4 ml-2" /></Button>
+                    <Button variant="ghost" size="sm">All Apps <ArrowRight size={16} className="ml-2" /></Button>
                 </div>
 
                 <div className="grid grid-cols-4 sm:grid-cols-6 gap-4 mb-8">
                     {START_MENU_ITEMS.map((item, index) => {
-                        const IconComponent = item.icon as React.ElementType;
                         const colorClass = iconColors[index % iconColors.length];
                         return (
                             <div
@@ -72,7 +71,7 @@ export default function StartMenu({ children }: { children: React.ReactNode }) {
                                 className="flex flex-col items-center gap-2 p-2 rounded-md hover:bg-accent cursor-pointer text-center"
                             >
                                 <div className={`w-14 h-14 ${colorClass} flex items-center justify-center rounded-lg`}>
-                                    <IconComponent className="w-7 h-7 text-white" />
+                                    <Image src={item.icon} alt={item.name} width={28} height={28} />
                                 </div>
                                 <span className="text-xs font-medium w-full break-words">{item.name}</span>
                             </div>
@@ -82,19 +81,19 @@ export default function StartMenu({ children }: { children: React.ReactNode }) {
 
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="text-lg font-semibold">Recommended</h3>
-                     <Button variant="ghost" size="sm">More <ArrowRight className="h-4 w-4 ml-2" /></Button>
+                     <Button variant="ghost" size="sm">More <ArrowRight size={16} className="ml-2" /></Button>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div onClick={resumeItem.action} className="flex items-center gap-4 p-3 rounded-lg hover:bg-accent cursor-pointer">
-                        <resumeItem.icon className="h-8 w-8 text-primary flex-shrink-0" />
+                        <Image src={resumeItem.icon} alt={resumeItem.name} width={32} height={32} className="text-primary flex-shrink-0" />
                         <div>
                             <p className="font-semibold">{resumeItem.name}</p>
                             <p className="text-xs text-muted-foreground">{resumeItem.description}</p>
                         </div>
                     </div>
                      <div onClick={projectsItem.action} className="flex items-center gap-4 p-3 rounded-lg hover:bg-accent cursor-pointer">
-                        <projectsItem.icon className="h-8 w-8 text-primary flex-shrink-0" />
+                        <Image src={projectsItem.icon} alt={projectsItem.name} width={32} height={32} className="text-primary flex-shrink-0" />
                         <div>
                             <p className="font-semibold">{projectsItem.name}</p>
                             <p className="text-xs text-muted-foreground">{projectsItem.description}</p>
@@ -111,20 +110,20 @@ export default function StartMenu({ children }: { children: React.ReactNode }) {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="ghost" size="icon" className="ml-auto">
-                                <Power className="h-5 w-5 opacity-70" />
+                                <Power size={20} className="opacity-70" />
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" side="top" className="mb-2 w-48">
                             <DropdownMenuItem onSelect={sleep}>
-                                <Moon className="mr-2 h-4 w-4" />
+                                <Moon size={16} className="mr-2" />
                                 <span>Sleep</span>
                             </DropdownMenuItem>
                              <DropdownMenuItem onSelect={restart}>
-                                <RefreshCw className="mr-2 h-4 w-4" />
+                                <RefreshCw size={16} className="mr-2" />
                                 <span>Restart</span>
                             </DropdownMenuItem>
                             <DropdownMenuItem onSelect={shutdown}>
-                                <Power className="mr-2 h-4 w-4" />
+                                <Power size={16} className="mr-2" />
                                 <span>Shutdown</span>
                             </DropdownMenuItem>
                         </DropdownMenuContent>

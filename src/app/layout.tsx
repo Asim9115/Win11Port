@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className="font-body antialiased md:overflow-hidden">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

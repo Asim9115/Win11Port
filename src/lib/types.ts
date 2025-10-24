@@ -40,13 +40,13 @@ type BaseItem = {
 }
 
 export type AppItem = BaseItem & {
-    icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>> | 'mypc' | React.FC<React.SVGProps<SVGSVGElement>>;
+    icon: string;
     type: 'app';
     appId: string;
 };
 
 export type LinkItem = BaseItem & {
-    icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>> | React.FC<React.SVGProps<SVGSVGElement>>;
+    icon: string;
     type: 'link';
     path: string;
 };

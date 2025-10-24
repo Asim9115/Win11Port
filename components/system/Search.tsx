@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
-import { SearchIcon, Briefcase, Code } from "lucide-react";
+import Image from "next/image";
 import { PROJECTS, SKILLS } from "@/lib/data.tsx";
 import { useWindows } from "@/hooks/use-windows";
 
@@ -29,7 +29,7 @@ export default function Search() {
         <Popover>
             <PopoverTrigger asChild>
                 <button className="p-3 rounded-md hover:bg-accent transition-colors">
-                    <SearchIcon className="h-5 w-5" />
+                    <Image src="/icons/search.svg" alt="Search" width={20} height={20} />
                 </button>
             </PopoverTrigger>
             <PopoverContent side="top" align="center" className="w-[500px] h-auto max-h-[600px] mb-2 bg-background/70 backdrop-blur-xl border rounded-lg shadow-2xl p-4 flex flex-col gap-4">
@@ -44,7 +44,7 @@ export default function Search() {
                         {filteredResults.length > 0 ? (
                             filteredResults.map((result, index) => (
                                 <div key={index} onClick={() => handleResultClick(result.type as 'project' | 'skill')} className="flex items-center gap-3 p-2 rounded-md hover:bg-accent cursor-pointer">
-                                    {result.type === 'project' ? <Briefcase className="h-5 w-5 text-accent-foreground" /> : <Code className="h-5 w-5 text-accent-foreground"/>}
+                                    {result.type === 'project' ? <Image src="/icons/briefcase.svg" alt="Project" width={20} height={20} className="text-accent-foreground" /> : <Image src="/icons/code.svg" alt="Skill" width={20} height={20} className="text-accent-foreground"/>}
                                     <span className="font-medium">{result.name}</span>
                                     <span className="ml-auto text-xs text-muted-foreground capitalize">{result.type}</span>
                                 </div>

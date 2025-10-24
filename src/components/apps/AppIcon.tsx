@@ -1,18 +1,15 @@
-import { Briefcase, Code, GraduationCap, Monitor, User, type LucideProps } from "lucide-react";
-import type { ForwardRefExoticComponent, RefAttributes } from 'react';
+import Image from "next/image";
 
-type IconComponent = ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
-
-const iconMap: Record<string, IconComponent> = {
-    MyPC: Monitor,
-    Projects: Briefcase,
-    Skills: Code,
-    Education: GraduationCap,
-    About: User,
+const iconMap: Record<string, string> = {
+    MyPC: '/icons/monitor.svg',
+    Projects: '/icons/briefcase.svg',
+    Skills: '/icons/code.svg',
+    Education: '/icons/graduation-cap.svg',
+    About: '/icons/user.svg',
 };
 
 export default function AppIcon({ appId, className }: { appId: string, className?: string }) {
     if (appId === "About Me") appId = "About";
-    const Icon = iconMap[appId] || Monitor;
-    return <Icon className={className} />;
+    const iconSrc = iconMap[appId] || '/icons/monitor.svg';
+    return <Image src={iconSrc} alt={`${appId} icon`} width={24} height={24} className={className} />;
 }

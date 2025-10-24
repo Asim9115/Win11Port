@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PROJECTS } from "@/lib/data.tsx";
-import { ArrowUpRight, Folder } from "lucide-react";
+import Image from "next/image";
 import type { Project } from "@/lib/types";
 import { useAppView } from "@/hooks/use-app-history";
 
@@ -17,7 +17,7 @@ function FolderView({ onOpen }: { onOpen: (project: Project) => void }) {
                     onDoubleClick={() => onOpen(project)}
                     className="flex flex-col items-center gap-2 p-2 rounded-md hover:bg-accent cursor-pointer text-center"
                 >
-                    <Folder className="h-12 w-12 text-primary" />
+                    <Image src="/icons/folder.svg" alt="Folder" width={48} height={48} className="text-primary" />
                     <span className="text-xs break-words w-full">{project.title}</span>
                 </div>
             ))}
@@ -33,7 +33,7 @@ function ProjectDetailView({ project }: { project: Project; }) {
                     {project.title}
                     <Button variant="ghost" size="icon" asChild>
                         <a href={project.link} target="_blank" rel="noopener noreferrer">
-                            <ArrowUpRight className="h-4 w-4"/>
+                            <Image src="/icons/arrow-up-right.svg" alt="Open project" width={16} height={16} />
                         </a>
                     </Button>
                 </CardTitle>

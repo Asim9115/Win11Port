@@ -1,5 +1,3 @@
-"use client";
-
 import React, { createContext, useContext, useState, useCallback, useMemo, useEffect } from "react";
 import { useWindows } from '@/hooks/use-windows';
 

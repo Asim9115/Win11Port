@@ -7,17 +7,12 @@ import Clock from "./Clock";
 import StartMenu from "./StartMenu";
 import Search from "./Search";
 import AppIcon from "../apps/AppIcon";
-import { Github, Linkedin, Wifi, Volume2, Battery, ChevronUp } from "lucide-react";
+import Image from "next/image";
 import { PERSONAL_INFO } from "@/lib/data.tsx";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import QuickSettings from "./QuickSettings";
 import { useMemo } from "react";
-
-const WindowsLogo = () => (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-        <path d="M0 0H8.75V8.75H0V0ZM11.25 0H20V8.75H11.25V0ZM0 11.25H8.75V20H0V11.25ZM11.25 11.25H20V20H11.25V11.25Z" />
-    </svg>
-);
+import { ChevronUp, Wifi, Volume2, Battery } from "lucide-react";
 
 const TaskbarIcon = ({ children, onClick }: { children: React.ReactNode, onClick?: () => void }) => (
     <button
@@ -55,7 +50,7 @@ export default function Taskbar() {
       <div className="flex items-center gap-1 md:gap-2">
         <StartMenu>
             <button className="p-3 rounded-md hover:bg-accent transition-colors">
-                <WindowsLogo />
+                <Image src="/icons/windows.svg" alt="Start Menu" width={20} height={20} />
             </button>
         </StartMenu>
         <div className="hidden sm:block">
@@ -64,10 +59,10 @@ export default function Taskbar() {
         
         <div className="hidden sm:flex">
             <TaskbarIcon onClick={() => handleLinkClick(PERSONAL_INFO.github)}>
-                <Github className="h-6 w-6" />
+                <Image src="/icons/github.svg" alt="GitHub" width={24} height={24} />
             </TaskbarIcon>
-            <TaskbarIcon onClick={() => handleLinkClick(PERSONAL_info.linkedin)}>
-                <Linkedin className="h-6 w-6" />
+            <TaskbarIcon onClick={() => handleLinkClick(PERSONAL_INFO.linkedin)}>
+                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} />
             </TaskbarIcon>
         </div>
 

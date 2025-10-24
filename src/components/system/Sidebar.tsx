@@ -3,6 +3,7 @@
 import { useWindows } from "@/hooks/use-windows";
 import { START_MENU_ITEMS } from "@/lib/data.tsx";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function Sidebar() {
     const { openWindow, windows } = useWindows();
@@ -28,7 +29,7 @@ export default function Sidebar() {
                             : "hover:bg-accent"
                     )}
                 >
-                    <item.icon className="h-4 w-4" />
+                    <Image src={item.icon} alt={item.name} width={16} height={16} />
                     <span>{item.name}</span>
                 </button>
             ))}

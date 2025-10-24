@@ -3,10 +3,10 @@
 import type { Window as WindowType } from "@/lib/types";
 import { useWindows } from "@/hooks/use-windows";
 import { Card } from "@/components/ui/card";
-import { X, Minus, Square, Copy } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import AppRenderer from "../apps/AppRenderer";
 import { cn } from "@/lib/utils";
+import { Minus, Square, Copy, X } from "lucide-react";
 
 export default function Window(props: WindowType) {
     const { id, appId, title, position, size, zIndex, minimized, maximized } = props;
@@ -105,7 +105,7 @@ export default function Window(props: WindowType) {
                 <span className="text-sm font-medium pl-2">{title}</span>
                 <div className="flex items-center">
                     <button onClick={() => toggleMinimize(id)} className="p-2 rounded hover:bg-accent hidden md:block"><Minus size={16} /></button>
-                    <button onClick={() => toggleMaximize(id)} className="p-2 rounded hover:bg-accent hidden md:block"><MaximizeIcon size={14} className={maximized ? "transform rotate-180" : ""} /></button>
+                    <button onClick={() => toggleMaximize(id)} className="p-2 rounded hover:bg-accent hidden md:block"><MaximizeIcon size={14} /></button>
                     <button onClick={handleClose} className="p-2 rounded hover:bg-destructive/80"><X size={16} /></button>
                 </div>
             </div>

@@ -1,6 +1,20 @@
 "use client";
 
-import { Wifi, Bluetooth, Moon, Sun, Volume2, Settings, BatteryFull, Plane, Accessibility, MapPin, Shield, ScreenShare, ChevronRight } from 'lucide-react';
+import {
+    Wifi,
+    Bluetooth,
+    Plane,
+    Battery,
+    Accessibility,
+    Moon,
+    Sun,
+    MapPin,
+    ScreenShare,
+    Shield,
+    Settings,
+    ChevronRight,
+    Volume2,
+} from 'lucide-react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
@@ -76,7 +90,7 @@ export default function QuickSettings() {
                         </div>
                         <QuickSettingButton icon={Plane} label="Airplane Mode" active={toggles.airplane} onClick={() => handleToggle('airplane')} />
 
-                        <QuickSettingButton icon={BatteryFull} label="Battery saver" active={toggles.batterySaver} onClick={() => handleToggle('batterySaver')} />
+                        <QuickSettingButton icon={Battery} label="Battery saver" active={toggles.batterySaver} onClick={() => handleToggle('batterySaver')} />
                         <QuickSettingButton icon={Accessibility} label="Accessibility" active={toggles.accessibility} onClick={() => handleToggle('accessibility')} />
                         
                         <QuickSettingButton 
@@ -107,7 +121,7 @@ export default function QuickSettings() {
 
                 <CardFooter className="p-2 flex items-center justify-between text-sm bg-black/5">
                      <div className="flex items-center gap-2 p-2">
-                         <BatteryFull className="h-5 w-5 text-primary" />
+                         <Battery className="h-5 w-5 text-primary" />
                          <span className="font-semibold">98%</span>
                     </div>
                     <Button variant="ghost" size="icon">

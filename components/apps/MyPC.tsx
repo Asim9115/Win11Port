@@ -2,7 +2,7 @@
 
 import { MY_PC_ITEMS } from "@/lib/data.tsx";
 import { useAppView } from "@/hooks/use-app-history";
-import { HardDrive } from "lucide-react";
+import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
 import { useEffect, useState } from "react";
 
@@ -39,7 +39,7 @@ export default function MyPC() {
                         if (!info) {
                             return (
                                  <div key={item.id} className="flex items-center gap-4 p-3 rounded-md">
-                                    <HardDrive className="h-10 w-10 text-primary flex-shrink-0"/>
+                                    <Image src="/icons/hard-drive.svg" alt="Hard drive" width={40} height={40} className="text-primary flex-shrink-0"/>
                                     <div className="w-full overflow-hidden">
                                          <span className="font-semibold text-sm truncate">{item.name}</span>
                                          <div className="h-2 my-1 bg-muted rounded-full" />
@@ -55,7 +55,7 @@ export default function MyPC() {
                                 onDoubleClick={() => open(item.appId)}
                                 className="flex items-center gap-4 p-3 rounded-md hover:bg-accent cursor-pointer transition-colors"
                             >
-                                <HardDrive className="h-10 w-10 text-primary flex-shrink-0"/>
+                                <Image src="/icons/hard-drive.svg" alt="Hard drive" width={40} height={40} className="text-primary flex-shrink-0"/>
                                 <div className="w-full overflow-hidden">
                                     <span className="font-semibold text-sm truncate">{item.name}</span>
                                     <Progress value={info.usagePercentage} className="h-2 my-1" />

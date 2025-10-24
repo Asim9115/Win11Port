@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, Folder } from "lucide-react";
+import Image from "next/image";
 import type { Education as EducationType } from "@/lib/types";
 import { EDUCATION } from "@/lib/data.tsx";
 import { useAppView } from "@/hooks/use-app-history";
@@ -14,7 +14,7 @@ function FolderView({ onOpen }: { onOpen: (edu: EducationType) => void }) {
                     onDoubleClick={() => onOpen(edu)}
                     className="flex flex-col items-center gap-2 p-2 rounded-md hover:bg-accent cursor-pointer text-center"
                 >
-                    <Folder className="h-12 w-12 text-primary" />
+                    <Image src="/icons/folder.svg" alt="Folder" width={48} height={48} className="text-primary" />
                     <span className="text-xs break-words w-full">{edu.institution}</span>
                 </div>
             ))}
@@ -26,7 +26,7 @@ function EducationDetailView({ edu }: { edu: EducationType; }) {
     return (
         <div className="flex gap-4">
             <div className="mt-1">
-                <GraduationCap className="h-6 w-6 text-primary" />
+                <Image src="/icons/graduation-cap.svg" alt="Education" width={24} height={24} className="text-primary" />
             </div>
             <div>
                 <h3 className="font-semibold">{edu.institution}</h3>
