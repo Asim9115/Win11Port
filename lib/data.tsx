@@ -1,11 +1,16 @@
 import type { Project, SkillCategory, Education, NavItem, DesktopItem } from "@/lib/types";
 import React from 'react';
 import { Briefcase, Code, GraduationCap, Mail, Github, Linkedin, FileText, User, Monitor } from "lucide-react";
-
-const YouTubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="currentColor" {...props}>
-        <path d="M27.5,7.58c-0.27-1-1.04-1.78-2.04-2.05C23.58,5,14,5,14,5s-9.58,0-11.46,0.53 c-1,0.27-1.77,1.05-2.04,2.05C0,9.45,0,14,0,14s0,4.55,0.5,6.42c0.27,1,1.04,1.78,2.04,2.05C4.42,23,14,23,14,23 s9.58,0,11.46-0.53c1-0.27,1.77-1.05,2.04-2.05C28,18.55,28,14,28,14S28,9.45,27.5,7.58z M11.2,18.4V9.6l7.6,4.4L11.2,18.4z" />
-    </svg>
+import Image from "next/image";
+import Win11 from "@public/win11.png";
+const YouTubeIcon = (props: React.HTMLAttributes<HTMLImageElement>) => (
+  <Image
+    src={Win11}
+    alt="YouTube"
+    width={28}    // adjust size as needed
+    height={28}
+    {...props}    // optional: to allow passing className, style, etc.
+  />
 );
 
 const LeetCodeIcon = (props: React.SVGProps<SVGSVGElement>) => (
