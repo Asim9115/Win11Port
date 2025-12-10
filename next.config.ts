@@ -1,7 +1,6 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -29,6 +28,16 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+  },
+
+  // ⭐ ADD THIS PART ⭐
+  async rewrites() {
+    return [
+      {
+        source: '/projects/daily2words/:path*',
+        destination: 'https://daily2words.onrender.com/:path*',
+      },
+    ];
   },
 };
 
