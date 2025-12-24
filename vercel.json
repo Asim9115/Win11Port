@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/projects/:path*",
+      "destination": "/projects/:path*"
+    },
+    {
+      "source": "/:code",
+      "destination": "https://api.asimkhan.me/r/:code"
+    }
+  ]
+}
